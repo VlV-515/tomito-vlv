@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tomito vlv Development"
+  short_description: "Build, package, and verify Tomito vlv."
+  default_prompt: "Build or maintain Tomito vlv, then validate Swift and package the macOS app."
