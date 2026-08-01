@@ -44,8 +44,14 @@ struct TomitoVLvApp: App {
             MenuBarView()
                 .environmentObject(state)
         } label: {
-            Image(nsImage: MenuBarTomatoIcon.image)
-                .accessibilityLabel("Tomito vlv")
+            HStack(spacing: 4) {
+                Image(nsImage: MenuBarTomatoIcon.image)
+                if state.isRunning {
+                    Text(state.formattedTime)
+                        .monospacedDigit()
+                }
+            }
+            .accessibilityLabel(state.isRunning ? "Tomito vlv, \(state.formattedTime) remaining" : "Tomito vlv")
         }
         .menuBarExtraStyle(.window)
     }
