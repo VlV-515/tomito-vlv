@@ -21,7 +21,9 @@ struct TimerView: View {
                 Spacer()
                 footer
             }
-            .padding(32)
+            .padding(.top, 52)
+            .padding(.horizontal, 48)
+            .padding(.bottom, 32)
         }
         .foregroundStyle(.white)
         .onAppear { state.applyWindowLevel() }
@@ -83,6 +85,10 @@ struct TimerView: View {
                 Button(state.copy.restart, action: state.restart)
                 Divider()
                 Button(state.copy.skip, action: state.skip)
+                Divider()
+                Button(state.copy.settings) {
+                    openWindow(id: "settings")
+                }
             } label: {
                 Image(systemName: "ellipsis")
                     .frame(width: 34, height: 34)
@@ -97,7 +103,7 @@ struct TimerView: View {
             Label("\(state.copy.sessionCount): \(state.completedSessions)", systemImage: "checkmark.circle")
             Spacer()
             Button {
-                NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+                openWindow(id: "settings")
             } label: {
                 Image(systemName: "gearshape")
             }
@@ -153,20 +159,28 @@ struct MenuBarView: View {
             Text(state.formattedTime)
                 .font(.system(.title, design: .rounded).monospacedDigit())
             Divider()
-            Button(state.isRunning ? state.copy.pause : state.copy.start, action: state.toggleRunning)
-            Button(state.copy.skip, action: state.skip)
-            Button(state.copy.restart, action: state.restart)
-            Divider()
-            Button(state.copy.settings) {
-                NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+            HStack(spacing: 8) {
+                Button(state.isRunning ? state.copy.pause : state.copy.start, action: state.toggleRunning)
+                Button(state.copy.skip, action: state.skip)
+                Button(state.copy.restart, action: state.restart)
             }
-            Button(state.copy.aboutTitle) {
-                openWindow(id: "about")
+            .buttonStyle(.bordered)
+            Divider()
+            HStack(spacing: 8) {
+                Button(state.copy.settings) {
+                    openWindow(id: "settings")
+                }
+                Button(state.copy.aboutTitle) {
+                    openWindow(id: "about")
+                }
             }
             Divider()
-            Button("Quit Tomito vlv") { NSApp.terminate(nil) }
+            HStack {
+                Spacer()
+                Button("Quit Tomito vlv") { NSApp.terminate(nil) }
+            }
         }
         .padding(14)
-        .frame(width: 220)
+        .frame(width: 300)
     }
 }

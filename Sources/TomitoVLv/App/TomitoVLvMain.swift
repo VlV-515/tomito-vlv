@@ -24,7 +24,7 @@ struct TomitoVLvApp: App {
             }
         }
 
-        Settings {
+        Window(state.copy.settings, id: "settings") {
             PreferencesView()
                 .environmentObject(state)
                 .preferredColorScheme(state.settings.colorScheme)
