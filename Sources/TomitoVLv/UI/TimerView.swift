@@ -31,17 +31,14 @@ struct TimerView: View {
 
     private var header: some View {
         HStack {
-            AppIconView(size: 24)
-            Text("Tomito vlv")
-                .font(.headline.weight(.semibold))
             Spacer()
             Text(state.copy.phaseName.uppercased())
-                .font(.caption.weight(.bold))
+                .font(.subheadline.weight(.bold))
                 .foregroundStyle(.white.opacity(0.55))
             Text(state.phaseTitle)
-                .font(.subheadline.weight(.semibold))
-                .padding(.horizontal, 11)
-                .padding(.vertical, 6)
+                .font(.headline.weight(.bold))
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
                 .background(phaseColor.opacity(0.22), in: Capsule())
                 .foregroundStyle(phaseColor)
         }
@@ -101,11 +98,14 @@ struct TimerView: View {
     private var footer: some View {
         HStack {
             Label("\(state.copy.sessionCount): \(state.completedSessions)", systemImage: "checkmark.circle")
+                .font(.subheadline.weight(.medium))
             Spacer()
             Button {
                 openWindow(id: "settings")
             } label: {
                 Image(systemName: "gearshape")
+                    .font(.title3)
+                    .frame(width: 32, height: 32)
             }
             .buttonStyle(.plain)
             .accessibilityLabel(state.copy.settings)
@@ -113,11 +113,12 @@ struct TimerView: View {
                 openAbout()
             } label: {
                 Image(systemName: "info.circle")
+                    .font(.title3)
+                    .frame(width: 32, height: 32)
             }
             .buttonStyle(.plain)
             .accessibilityLabel(state.copy.aboutTitle)
         }
-        .font(.footnote)
         .foregroundStyle(.white.opacity(0.58))
     }
 
