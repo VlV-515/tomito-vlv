@@ -29,10 +29,9 @@ struct TimerView: View {
 
     private var header: some View {
         HStack {
-            Label("Tomito vlv", image: "AppIcon-source")
-                .labelStyle(.titleAndIcon)
+            AppIconView(size: 24)
+            Text("Tomito vlv")
                 .font(.headline.weight(.semibold))
-                .accessibilityLabel("Tomito vlv")
             Spacer()
             Text(state.copy.phaseName.uppercased())
                 .font(.caption.weight(.bold))

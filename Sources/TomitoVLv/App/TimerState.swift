@@ -114,11 +114,20 @@ final class TimerState: ObservableObject {
     private var sleepAssertion: IOPMAssertionID = 0
     private var resumeAfterWake = false
     private var observers: [NSObjectProtocol] = []
+    private var settingsCancellables = Set<AnyCancellable>()
 
     init() {
         let loadedSettings = TimerSettings()
         settings = loadedSettings
         remainingSeconds = loadedSettings.sessionMinutes * 60
+        loadedSettings.objectWillChange
+            .sink { [weak self] _ in
+                Task { @MainActor in
+                    self?.objectWillChange.send()
+                    self?.updateSleepAssertion()
+                }
+            }
+            .store(in: &settingsCancellables)
         requestNotifications()
         observeSleep()
     }
