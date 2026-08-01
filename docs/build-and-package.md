@@ -33,13 +33,13 @@ Packaging creates local files only. It does not push Git, publish a GitHub Relea
 Create the ZIP and SHA-256 checksum uploaded to GitHub Releases:
 
 ```bash
-./scripts/package-release.sh 1.0.0
+./scripts/package-release.sh 1.1.0
 ```
 
 Prepare the identical local SourceForge mirror folder without uploading it:
 
 ```bash
-./scripts/prepare-sourceforge-release.sh 1.0.0
+./scripts/prepare-sourceforge-release.sh 1.1.0
 ```
 
 See [Release guide](release.md) for the full validation and publishing sequence.

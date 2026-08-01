@@ -8,7 +8,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/macOS-13%2B-0f172a?logo=apple&logoColor=white" alt="macOS 13 or later">
-  <img src="https://img.shields.io/badge/version-v1.0.0-dc2626" alt="Current version v1.0.0">
+  <img src="https://img.shields.io/badge/version-v1.1.0-dc2626" alt="Current version v1.1.0">
   <img src="https://img.shields.io/badge/license-MIT-059669" alt="MIT License">
 </p>
 
@@ -26,7 +26,7 @@ Tomito vlv keeps Pomodoro focused: a beautiful timer, useful breaks, menu-bar co
 - **Bilingual** — Starts in English. Switch to `🇺🇸 English` or `🇲🇽 Español` from Preferences.
 - **Native and open** — SwiftUI + AppKit, no accounts, no analytics, no network dependency.
 
-## Included in v1.0.0
+## Included in v1.1.0
 
 | Area | What you get |
 | --- | --- |
@@ -36,7 +36,7 @@ Tomito vlv keeps Pomodoro focused: a beautiful timer, useful breaks, menu-bar co
 | Sleep | Keep Mac awake while active; pause on sleep; optionally resume on wake |
 | Appearance | System, light, or dark mode; tomato or forest accent |
 | Language | English default plus Spanish selector with country flags |
-| About | App icon, v1.0.0, GitHub and SourceForge project links |
+| About | App icon, v1.1.0, GitHub and SourceForge project links |
 
 Not included: history/statistics, timer widget, sounds, global shortcuts, AppleScript, analytics, or accounts.
 
@@ -52,7 +52,7 @@ Configure durations and automatic phases, pick English or Spanish plus a system,
 
 ## Get Tomito vlv
 
-### Current release: v1.0.0
+### Current release: v1.1.0
 
 Download the app from [GitHub Releases](https://github.com/VlV-515/tomito-vlv/releases). SourceForge mirror files are prepared separately.
 
