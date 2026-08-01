@@ -10,9 +10,10 @@ struct TomitoVLvApp: App {
             TimerView()
                 .environmentObject(state)
                 .preferredColorScheme(state.settings.colorScheme)
-                .frame(minWidth: 640, minHeight: 480)
+                .frame(minWidth: 640, minHeight: 600)
         }
         .windowStyle(.hiddenTitleBar)
+        .defaultSize(width: 720, height: 640)
         .commands {
             CommandMenu("Timer") {
                 Button(state.copy.startPauseResume) { state.toggleRunning() }
