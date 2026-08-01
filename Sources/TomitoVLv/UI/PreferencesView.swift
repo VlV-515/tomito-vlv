@@ -13,7 +13,7 @@ struct PreferencesView: View {
                 .tabItem { Label(state.copy.advanced, systemImage: "moon.stars") }
         }
         .padding(12)
-        .frame(width: 500, height: 360)
+        .frame(width: 420, height: 360)
     }
 
     private var general: some View {

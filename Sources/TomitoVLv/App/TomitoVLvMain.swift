@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 @main
@@ -30,6 +31,7 @@ struct TomitoVLvApp: App {
                 .environmentObject(state)
                 .preferredColorScheme(state.settings.colorScheme)
         }
+        .defaultSize(width: 420, height: 360)
 
         Window(state.copy.aboutTitle, id: "about") {
             AboutView()
@@ -38,10 +40,38 @@ struct TomitoVLvApp: App {
         }
         .defaultSize(width: 480, height: 500)
 
-        MenuBarExtra("Tomito vlv", systemImage: "timer") {
+        MenuBarExtra {
             MenuBarView()
                 .environmentObject(state)
+        } label: {
+            Image(nsImage: MenuBarTomatoIcon.image)
+                .accessibilityLabel("Tomito vlv")
         }
         .menuBarExtraStyle(.window)
     }
+}
+
+private enum MenuBarTomatoIcon {
+    static let image: NSImage = {
+        let image = NSImage(size: NSSize(width: 18, height: 18))
+        image.lockFocus()
+        NSColor.black.setFill()
+
+        NSBezierPath(ovalIn: NSRect(x: 2, y: 2, width: 14, height: 12)).fill()
+        NSBezierPath(roundedRect: NSRect(x: 8, y: 12, width: 2, height: 4), xRadius: 1, yRadius: 1).fill()
+
+        let leaves = NSBezierPath()
+        leaves.move(to: NSPoint(x: 9, y: 12))
+        leaves.line(to: NSPoint(x: 4.5, y: 15.5))
+        leaves.line(to: NSPoint(x: 8.5, y: 14))
+        leaves.line(to: NSPoint(x: 9, y: 17))
+        leaves.line(to: NSPoint(x: 10, y: 14))
+        leaves.line(to: NSPoint(x: 14, y: 15.5))
+        leaves.close()
+        leaves.fill()
+
+        image.unlockFocus()
+        image.isTemplate = true
+        return image
+    }()
 }

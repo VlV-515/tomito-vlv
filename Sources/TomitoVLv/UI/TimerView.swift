@@ -176,10 +176,7 @@ struct MenuBarView: View {
                 }
             }
             Divider()
-            HStack {
-                Spacer()
-                Button("Quit Tomito vlv") { NSApp.terminate(nil) }
-            }
+            Button(state.copy.quit) { NSApp.terminate(nil) }
         }
         .padding(14)
         .frame(width: 300)

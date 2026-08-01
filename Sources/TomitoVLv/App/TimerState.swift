@@ -300,6 +300,7 @@ struct AppCopy {
     var restart: String { spanish ? "Reiniciar" : "Restart" }
     var startPauseResume: String { spanish ? "Iniciar/Pausar/Reanudar" : "Start/Pause/Resume" }
     var settings: String { spanish ? "Preferencias" : "Preferences" }
+    var quit: String { spanish ? "Cerrar Tomito vlv" : "Quit Tomito vlv" }
     var aboutTitle: String { spanish ? "Acerca de Tomito vlv" : "About Tomito vlv" }
     var sessionCount: String { spanish ? "Sesiones completadas" : "Completed sessions" }
     var general: String { spanish ? "General" : "General" }

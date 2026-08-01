@@ -8,7 +8,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/macOS-13%2B-0f172a?logo=apple&logoColor=white" alt="macOS 13 or later">
-  <img src="https://img.shields.io/badge/version-0.1.0-dc2626" alt="Version 0.1.0">
+  <img src="https://img.shields.io/badge/version-v0.1.0-dc2626" alt="Current version v0.1.0">
   <img src="https://img.shields.io/badge/license-MIT-059669" alt="MIT License">
 </p>
 
