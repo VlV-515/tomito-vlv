@@ -12,4 +12,4 @@ open "dist/Tomito vlv.app"
 
 The executable is `Tomito-vlv`. The visible app name is `Tomito vlv`.
 
-macOS may show a first-run warning because v0.1.0 is ad-hoc signed and not notarized. This local bundle is intended for development and personal use.
+macOS may show a first-run warning because v1.0.0 is ad-hoc signed and not notarized. This bundle is intended for local use.

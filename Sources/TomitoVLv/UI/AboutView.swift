@@ -11,7 +11,7 @@ struct AboutView: View {
             Text("A calmer Pomodoro timer for macOS.")
                 .font(.headline)
                 .foregroundStyle(.secondary)
-            Text("\(state.copy.version) 0.1.0")
+            Text("\(state.copy.version) 1.0.0")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
             Divider().padding(.horizontal, 32)

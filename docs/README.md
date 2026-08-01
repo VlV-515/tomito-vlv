@@ -6,3 +6,5 @@ Tomito vlv is a local-first Pomodoro timer for macOS 13 or later.
 - [Use the timer and preferences](using-tomito-vlv.md)
 - [Privacy and sleep prevention](privacy-and-sleep.md)
 - [Build and package](build-and-package.md)
+- [Release guide](release.md)
+- [SourceForge mirror](sourceforge.md)
