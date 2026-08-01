@@ -12,25 +12,17 @@ struct PreferencesView: View {
             advanced
                 .tabItem { Label(state.copy.advanced, systemImage: "moon.stars") }
         }
-        .padding(20)
-        .frame(width: 620, height: 440)
+        .padding(12)
+        .frame(width: 500, height: 360)
     }
 
     private var general: some View {
         Form {
             Section {
-                Stepper(value: $state.settings.sessionMinutes, in: 1...180) {
-                    SettingLabel(state.copy.sessionDuration, value: "\(state.settings.sessionMinutes) \(state.copy.minutes)")
-                }
-                Stepper(value: $state.settings.shortBreakMinutes, in: 1...60) {
-                    SettingLabel(state.copy.shortBreak, value: "\(state.settings.shortBreakMinutes) \(state.copy.minutes)")
-                }
-                Stepper(value: $state.settings.longBreakMinutes, in: 1...120) {
-                    SettingLabel(state.copy.longBreak, value: "\(state.settings.longBreakMinutes) \(state.copy.minutes)")
-                }
-                Stepper(value: $state.settings.longBreakEvery, in: 2...12) {
-                    SettingLabel(state.copy.longBreakEvery, value: "\(state.settings.longBreakEvery) \(state.copy.sessions)")
-                }
+                SettingTextField(state.copy.sessionDuration, value: $state.settings.sessionMinutes, in: 1...180, unit: state.copy.minutes)
+                SettingTextField(state.copy.shortBreak, value: $state.settings.shortBreakMinutes, in: 1...60, unit: state.copy.minutes)
+                SettingTextField(state.copy.longBreak, value: $state.settings.longBreakMinutes, in: 1...120, unit: state.copy.minutes)
+                SettingTextField(state.copy.longBreakEvery, value: $state.settings.longBreakEvery, in: 2...12, unit: state.copy.sessions)
             }
             Section {
                 Toggle(state.copy.autoSession, isOn: $state.settings.autoStartSession)
@@ -85,20 +77,37 @@ struct PreferencesView: View {
     }
 }
 
-private struct SettingLabel: View {
+private struct SettingTextField: View {
     let title: String
-    let value: String
+    @Binding var value: Int
+    let range: ClosedRange<Int>
+    let unit: String
 
-    init(_ title: String, value: String) {
+    init(_ title: String, value: Binding<Int>, in range: ClosedRange<Int>, unit: String) {
         self.title = title
-        self.value = value
+        _value = value
+        self.range = range
+        self.unit = unit
     }
 
     var body: some View {
         HStack {
             Text(title)
             Spacer()
-            Text(value).foregroundStyle(.secondary)
+            TextField("", value: limitedValue, format: .number)
+                .multilineTextAlignment(.trailing)
+                .textFieldStyle(.roundedBorder)
+                .frame(width: 52)
+            Text(unit)
+                .foregroundStyle(.secondary)
+                .frame(width: 64, alignment: .leading)
         }
+    }
+
+    private var limitedValue: Binding<Int> {
+        Binding(
+            get: { value },
+            set: { value = min(max($0, range.lowerBound), range.upperBound) }
+        )
     }
 }
